@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--id为这个类在容器中的名字,必须是唯一的-->
+    <bean id="userService" class="com.works.bryant.service.UserServiceImpl">
+        <property name="username" value="张三"/>
+        <property name="password" value="123"/>
+        <property name="user" ref="user">
+        </property>
+    </bean>
+
+    <!--通过上面的名字指向,对user赋值,然后在其他地方显示,相当于一对多查询-->
+    <bean id="user" class="com.works.bryant.service.User">
+        <property name="name" value="ls"/>
+        <property name="age" value="123"/>
+    </bean>
+
+</beans>
